@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+    <style>
+        body{
+            background-color: rgb(168, 219, 255);
+        }
+        .box{
+            background-color: rgb(94, 195, 239);
+            text-align: center;
+            padding:20px;
+            margin:200px 300px;
+            display:grid;
+            place-content: center;
+            border-radius: 15px;
+            box-shadow: 2px 2px 20px;
+        }
+        .box input{
+            margin:10px 50px;
+            text-align: center;
+            width:auto;
+            padding:5px;
+            border:none;
+        }
+        .box button{
+            margin:0px 100px;
+            padding: 10px;
+            border:none;
+            border-radius: 10px;
+        }
+        .box h1{
+            text-align: center;
+        }
+        .box h3{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="conntainer">
+        <div class="box">
+            <h1>Age Calculator</h1>
+            <h4>Enter your DOB:</h4><input id="input" type="date">
+            <br>
+            <button id="submit" onclick="calculate()">Calculate</button>
+                
+            <h3 id="age"></h3>
+            
+        </div>
+    </div>
+</body>
+<script>
+    function calculate(){
+        let dob=document.getElementById('input').value;
+
+        if(dob===""){
+        alert("Your DOB field is empty");
+        return false;
+        }
+
+        let date=new Date();
+        let birthYear=new Date(dob);
+
+        let b_year=birthYear.getFullYear();
+        let b_month=birthYear.getMonth();
+        let b_date=birthYear.getDate();
+        
+        let age=date.getFullYear()-b_year;
+
+        let age1=document.getElementById('age').innerText=age+" Years";
+    }
+</script>
+</html>
